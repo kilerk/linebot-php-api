@@ -1,3 +1,3 @@
 <?php
- echo “นี่คือเว็บของ FirstBot…..”;
+ echo "ทดสอบ line bot";
 ?>
