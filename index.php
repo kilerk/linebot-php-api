@@ -10,9 +10,22 @@
 
 	$messages = [];
 	$messages['replyToken'] = $replyToken;
-	$messages['messages'][0] = getFormatTextMessage("เอ้ย ถามอะไรก็ตอบได้");
-
+	
+	
+	
+	// เริ่มต้นรับค่า	:	เพือตอบ line
+	 if( $messages['message']['type'] == 'text' )
+					   {
+					$text = $event['message']['text'];
+					$reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
+					$messages['messages'][0] = getFormatTextMessage($reply_message);
+					  }
+   
+   	//สิ้นสุดรับค่า	:	เพือตอบ line
+	//$messages['messages'][0] = getFormatTextMessage("เอ้ย ถามอะไรก็ตอบได้");
 	$encodeJson = json_encode($messages);
+
+
 
 	$LINEDatas['url'] = "https://api.line.me/v2/bot/message/reply";
   	$LINEDatas['token'] = "d9CQ8GEJulkPRowfsQqckFDg5ENzMPq7tG21uAJzprTl3YqhY20YzB2BEGWA+uAk1m15kVeGYbPPN/FtqsVBeXLO8GeGJgdXkhc3s4c2x7VKx1jzuRF2xsRFwaNdvVyMt85fNvf0D97UNKRK3zovqAdB04t89/1O/w1cDnyilFU=";
